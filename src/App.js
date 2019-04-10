@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AddPost from './Containers/AddPost/AddPost';
+import ShowPost from './Containers/ShowPost/ShowPost';
+import EditPost from './Containers/EditPost/EditPost';
+import SinglePost from './Containers/SinglePost/SinglePost';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+        </div>
+        <Switch>
+          <Route path='/' exact component={AddPost} />
+          <Route path='/posts' exact component={ShowPost} />
+          <Route path='/posts/:id' exact component={SinglePost} />
+          <Route path='/posts/edit/:id' component={EditPost} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
