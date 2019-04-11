@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class ShowPost extends Component {
+    componentDidMount() {
+        
+    }
     render() {
         return (
             <div>
