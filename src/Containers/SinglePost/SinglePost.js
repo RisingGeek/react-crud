@@ -4,10 +4,11 @@ import SinglePostComponent from '../../Components/SinglePostComponent/SinglePost
 
 class SinglePost extends Component {
     state = {
-        post: {}
+        post: {},
+        id: this.props.match.params.id
     }
     componentDidMount() {
-         axios.get(`${process.env.REACT_APP_PROXY}/getparticularpost/${this.props.match.params.id}`)
+         axios.get(`${process.env.REACT_APP_PROXY}/getparticularpost/${this.state.id}`)
          .then(response => {
              this.setState({ post: response.data });
          }).catch(err => {
@@ -17,7 +18,8 @@ class SinglePost extends Component {
     render() {
         return (
             <SinglePostComponent
-            post={this.state.post} />
+            post={this.state.post}
+            id={this.state.id} />
         );
     }
 }

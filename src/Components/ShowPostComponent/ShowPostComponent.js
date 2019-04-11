@@ -16,8 +16,9 @@ const ShowPostComponent = props => {
                         <div className="col-sm-12" key={post._id}>
                             <Link to={{pathname: `/posts/${index+1}`}}>
                                 <h1>{post.title}</h1>
-                                <h5>Author: {post.username}</h5>
-                                <p>{post.body}</p>
+                            </Link>
+                            <Link to={{pathname: `/posts/edit/${index+1}`}} className="text-danger">
+                            Edit Post
                             </Link>
                             <hr />
                         </div>
